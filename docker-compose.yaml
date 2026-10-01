@@ -11,6 +11,7 @@ services:
       - .env
     networks:
       - public
+    restart: unless-stopped
 
   backend:
     build:
@@ -29,6 +30,7 @@ services:
       spring.jpa.hibernate.ddl-auto: update
     networks:
       - public
+    restart: unless-stopped
 
   db:
     image: postgres:17
@@ -45,6 +47,7 @@ services:
       - app-db-data:/var/lib/postgresql/data/pgdata
     networks:
       - public
+    restart: unless-stopped
 
 networks:
   public:
